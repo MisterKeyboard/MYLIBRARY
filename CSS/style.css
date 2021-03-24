@@ -1,3 +1,4 @@
+/*
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
     width: 100%;
@@ -26,7 +27,7 @@ h1{
     font-style: italic;
 }
 
-form{
+td{
     color: white;
     font-size: 30px;
 }

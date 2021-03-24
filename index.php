@@ -16,30 +16,53 @@
 
         <div class="welcome">
             <h1>WELCOME IN MY LIBRARY</h1>
-            <form method="POST" action="add.php">
 
-                <label for="title">Book title</label>
-                <input type="text" name="title">
 
-                <label for="price">Price</label>
-                <input type="number" name="price" min="0" step="0.01">
+            <table>
+                <tr>
+                    <td>Book title<td>
+                    <td>Price<td>
+                    <td>Language<td>
+                    <td>Release date<td>
+                    <td>Author<td>
+                    <td>Nationality<td>
+                <tr>
+            <table>
 
-                <label for="date">Release date</label>
-                <input type="number" name="date" step="1">
-
-                <label for="language">Language</label>
-                <input type="text" name="language">
-
-                <button type="submit">SEND</button>
-            </form>
-        </div>
-    </section>
 
 </body>
 
 </html>
 
 
+
+
+
+<?php
+
+
+
+try{
+$PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
+/* echo "connection is successfull!"; */
+
+
+$sql = ('SELECT title, price, language, releasedate, book.id, name ,nationality FROM book LEFT JOIN author ON book.id = author.author_id');
+
+
+foreach ($PDO->query($sql) as $row) {
+    print $row["title"] . "      ";
+    print $row["price"] . " ". "€" . "      " ;
+    print $row["language"] . "      ";
+    print $row["realeasedate"] . "      ";
+    print $row["name"] . "      ";
+    print $row["nationality"] . "<br/>";
+} 
+$PDO = null;
+}
+catch (PDOException $pe){
+    echo "Erreur is: " .$pe->getMessage();
+}
 
 
 
