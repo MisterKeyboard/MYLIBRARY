@@ -17,22 +17,23 @@
         <div class="welcome">
             <h1>WELCOME IN MY LIBRARY</h1>
 
+            <a href="add.php">Add a book<a>
+
             <table border = "1px" >
                 <tr>
                     <th>Book title</th>
                     <th>Price</th>
-                    <th>language</th>
+                    <th>Language</th>
                     <th>Release date</th>
                     <th>Author</th>
                     <th>Nationality</th>
                 </tr>
 
-                <a href="add.php">Ajouter<a>
-                    
-                    <aside id="modal1">
-                        <
+
+
 
 </body>
+
 
 </html>
 

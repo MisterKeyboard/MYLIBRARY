@@ -1,10 +1,7 @@
 
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 100%;
-    height: 1000px;
     background: url('../img/Bibliothèque-nationale-de-Rio-de-Janeiro-Brésil-0.jpg');
-    background-repeat: no-repeat;
     background-size: cover;
 }
 
@@ -16,19 +13,33 @@ body{
 }
 
 
-.welcome{
-margin: 30px;
-}
 
 h1{
     width: 100%;
+    margin-top: 50px;
+    margin-left: 5%;
     color: white;
     font-size: 50px;
     font-style: italic;
     margin-bottom: 100px;
 }
 
-td , th{
+table{
     background-color: white;
     font-size: 20px;
+    width: 90%;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+a{
+
+    margin-left: 5%;
+    font-size: 30px;
+}
+
+.center{
+text-align: center;
 }

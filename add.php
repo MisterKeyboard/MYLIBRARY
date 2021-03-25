@@ -18,39 +18,56 @@
         <label for="price">Price</label>
         <input type="number" name="price" min="0" step="0.01">
 
-        <label for="date">Release date</label>
-        <input type="number" name="date" step="1">
+        <label for="releasedate">Release date</label>
+        <input type="number" name="releasedate" step="1">
 
         <label for="language">Language</label>
         <input type="text" name="language">
 
+        <label for="author">Choose the author</label><br />
+        <select name="author" id="author">
+
+        <?php
+        $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
+        $answer = $PDO->query('SELECT name FROM author');
+
+        while ($data = $answer->fetch()){
+        ?>
+            <option value="<?php echo $data['name']; ?>"></option>;
+        <?php
+        }
+        
+        ?>
+        </select>
+
         <button type="submit">SEND</button>
+
+
 
     </form>
 
     </body>
+
+
 </html>
 
 <?php
 
-/*
-if ($server['REQUEST_METHOD'] === 'POST') {
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST["title"]) || empty($_POST["price"]) || empty($_POST["releasedate"]) || empty($_POST["language"])){ 
         echo 'Veuillez remplir tous les champs.'; 
     }else {
+
+
         $title = $_POST["title"];
-        $price = $_post["price"];
-        $date = $_POST["releasedate"];
+        $price = $_POST["price"];
+        $releasedate = $_POST["releasedate"];
         $language = $_POST["language"];
+        $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
 
-        $sql= $PDO->prepare("INSERT INTO book (title, price, releasedate, language)VALUES (:title, :price, :date, :language)");
-
-        $sql->execute(array(':title' => $title, ':price' => $title, ':date' => $date, ':language' => $language));
+        $sql = $PDO->prepare("INSERT INTO book (title, price, releasedate, language) VALUES (:title, :price, :releasedate, :language)");
+        $sql->execute(array(":title" => $title, ":price" => $price, ":releasedate" => $releasedate, ":language" => $language));
     }
-}*/
-
-
-
-
-
-
+    
+}
