@@ -17,18 +17,20 @@
         <div class="welcome">
             <h1>WELCOME IN MY LIBRARY</h1>
 
-
-            <table>
+            <table border = "1px" >
                 <tr>
-                    <td>Book title<td>
-                    <td>Price<td>
-                    <td>Language<td>
-                    <td>Release date<td>
-                    <td>Author<td>
-                    <td>Nationality<td>
-                <tr>
-            <table>
+                    <th>Book title</th>
+                    <th>Price</th>
+                    <th>language</th>
+                    <th>Release date</th>
+                    <th>Author</th>
+                    <th>Nationality</th>
+                </tr>
 
+                <a href="add.php">Ajouter<a>
+                    
+                    <aside id="modal1">
+                        <
 
 </body>
 
@@ -47,17 +49,19 @@ $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£"
 /* echo "connection is successfull!"; */
 
 
-$sql = ('SELECT title, price, language, releasedate, book.id, name ,nationality FROM book LEFT JOIN author ON book.id = author.author_id');
+$sql = ('SELECT title, price, language, releasedate, id, name ,nationality FROM book LEFT JOIN author ON book.author_id = author.author_id');
 
 
 foreach ($PDO->query($sql) as $row) {
-    print $row["title"] . "      ";
-    print $row["price"] . " ". "€" . "      " ;
-    print $row["language"] . "      ";
-    print $row["realeasedate"] . "      ";
-    print $row["name"] . "      ";
-    print $row["nationality"] . "<br/>";
+    echo "<tr><td>" .
+    $row["title"] . "</td><td>" .
+    $row["price"] . " €" . "</td><td>" .
+    $row["language"] . "</td><td>".
+    $row["releasedate"] . "</td><td>".
+    $row["name"] . "</td><td>".
+    $row["nationality"] . "</td></tr>";
 } 
+echo "</table>";
 $PDO = null;
 }
 catch (PDOException $pe){

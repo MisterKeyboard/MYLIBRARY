@@ -1,4 +1,4 @@
-/*
+
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
     width: 100%;
@@ -25,9 +25,10 @@ h1{
     color: white;
     font-size: 50px;
     font-style: italic;
+    margin-bottom: 100px;
 }
 
-td{
-    color: white;
-    font-size: 30px;
+td , th{
+    background-color: white;
+    font-size: 20px;
 }
