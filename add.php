@@ -1,5 +1,12 @@
+<?php
+    require('index.php');
+    $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -25,15 +32,14 @@
         <input type="text" name="language">
 
         <label for="author">Choose the author</label><br />
-        <select name="author" id="author">
+        <select name="author_id" id="author">
 
         <?php
-        $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
-        $answer = $PDO->query('SELECT name FROM author');
+        
 
-        while ($data = $answer->fetch()){
+        foreach ($PDO->query('SELECT author_id, name FROM author') as $data) {
         ?>
-            <option value="<?php echo $data['name']; ?>"></option>;
+            <option value="<?php echo $data['author_id']; ?>"><?php echo $data['name']; ?></option>;
         <?php
         }
         
@@ -64,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $price = $_POST["price"];
         $releasedate = $_POST["releasedate"];
         $language = $_POST["language"];
-        $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
+
 
         $sql = $PDO->prepare("INSERT INTO book (title, price, releasedate, language) VALUES (:title, :price, :releasedate, :language)");
         $sql->execute(array(":title" => $title, ":price" => $price, ":releasedate" => $releasedate, ":language" => $language));
