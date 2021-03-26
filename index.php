@@ -16,8 +16,6 @@
 
         <div class="welcome">
             <h1>WELCOME IN MY LIBRARY</h1>
-
-            <a href="add.php">Add a book<a>
             
 
             <table border = "1px" >
@@ -32,19 +30,7 @@
 
 
 
-
-</body>
-
-
-</html>
-
-
-
-
-
 <?php
-
-
 
 try{
 $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
@@ -70,5 +56,10 @@ catch (PDOException $pe){
     echo "Erreur is: " .$pe->getMessage();
 }
 
+?>
 
+</body>
+
+
+</html>
 

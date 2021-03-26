@@ -21,6 +21,7 @@
 
 <body>
 
+
     <button id="btnPopup" class="btnPopup">Add a book</button>
 
     <div id="overlay" class="overlay">
@@ -28,7 +29,7 @@
         <div id="popup" class="popup">
 
 
-            <span id="btnClose" class="btnClose">&times;</span>
+            <h2>In order to add a book,please fill in each of the fields<span id="btnClose" class="btnClose">&times;</span><h2>
 
             <form method="POST" action="add.php">
 
@@ -44,7 +45,7 @@
                 <label for="language">Language</label>
                 <input type="text" name="language">
 
-                <label for="author">Choose the author</label><br />
+                <label for="author">Choose an author in the list</label><br />
                 <select name="author_id" id="author">
 
                 <?php
@@ -75,14 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST["title"]) || empty($_POST["price"]) || empty($_POST["releasedate"]) || empty($_POST["language"])){ 
     echo 'Veuillez remplir tous les champs.'; 
     }else {
-        var_dump($_POST);
-
         $title = $_POST["title"];
         $price = $_POST["price"];
         $releasedate = $_POST["releasedate"];
         $language = $_POST["language"];
         $author_id = $_POST["author_id"];
-
 
         $sql = $PDO->prepare("INSERT INTO book (title, price, releasedate, language, author_id) VALUES (:title, :price, :releasedate, :language, :author_id)");
         $sql->execute(array(":title" => $title, ":price" => $price, ":releasedate" => $releasedate, ":language" => $language, ":author_id" => $author_id ));
