@@ -18,8 +18,9 @@
             <h1>WELCOME IN MY LIBRARY</h1>
             
 
-            <table border = "1px" >
+            <table>
                 <tr>
+                    <th>Id</th>
                     <th>Book title</th>
                     <th>Price</th>
                     <th>Language</th>
@@ -32,31 +33,29 @@
 
 <?php
 
-try{
+
 $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
 /* echo "connection is successfull!"; */
 
 
-$sql = ('SELECT title, price, language, releasedate, id, name ,nationality FROM book LEFT JOIN author ON book.author_id = author.author_id');
+$sql = ('SELECT id, title, price, language, releasedate, name ,nationality FROM book LEFT JOIN author ON book.author_id = author.author_id');
 
 
-foreach ($PDO->query($sql) as $row) {
-    echo "<tr><td>" .
-    $row["title"] . "</td><td>" .
-    $row["price"] . " €" . "</td><td>" .
-    $row["language"] . "</td><td>".
-    $row["releasedate"] . "</td><td>".
-    $row["name"] . "</td><td>".
-    $row["nationality"] . "</td></tr>";
-} 
-echo "</table>";
-$PDO = null;
-}
-catch (PDOException $pe){
-    echo "Erreur is: " .$pe->getMessage();
-}
+foreach ($PDO->query($sql) as $row) : ?>
+    <tr>
+        <td><?= $row["id"] ?></td>
+        <td><?= $row["title"] ?></td>
+        <td><?= $row["price"] . " €" ?></td>
+        <td><?= $row["language"]?></td>
+        <td><?= $row["releasedate"]?></td>
+        <td><?= $row["name"]?></td>
+        <td><?= $row["nationality"]?></td>
+        <td><a href="del.php?idd=<?= $row["id"] ?>">Delete</a></td>
+        <td><a href="update.php?idd=<?= $row["id"] ?>">Edit</a></td>
+    </tr>
+    <?php endforeach; ?>
+</table>
 
-?>
 
 </body>
 

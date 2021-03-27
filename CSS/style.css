@@ -4,14 +4,11 @@ body{
     background-size: cover;
 }
 
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
 
 h1{
     width: 100%;
@@ -23,14 +20,19 @@ h1{
     margin-bottom: 100px;
 }
 
+td , tr {
+    text-align: center;
+    border-style:solid;
+}
+
 table{
     background-color:white;
     font-size: 20px;
-    border-radius: 10px;
     width: 90%;
     margin-top: 50px;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 50px;
 }
 
 
@@ -45,8 +47,13 @@ text-align: center;
 
 
 
-.btnPopup{
+
+
+/* POP UP */
+
+.btnPopup {
     margin-left: 5%;
+    margin-bottom: 50px;
     background-color: green;
     padding:1em 2em;
     border-radius: 15px;
@@ -55,9 +62,15 @@ text-align: center;
     cursor: pointer;
 }
 
+
+
+
 .btnPopup:hover{
-    background-color: gainsboro;
+    background-color: rgba(0, 128, 0, 0.253);
 }
+
+
+
 
 .overlay{
     position:fixed;
@@ -68,6 +81,13 @@ text-align: center;
     height: 100%;
     display:none;
 }
+
+
+
+
+
+
+
 
 .popup{
     margin:20% auto;
@@ -82,4 +102,8 @@ text-align: center;
 .btnClose{
     float:right;
     cursor:pointer;
+}
+
+h2{
+    margin-bottom: 6px;
 }
