@@ -4,7 +4,7 @@ $id = $_GET["idd"];
 
 $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
 
-$sql = "SELECT * FROM book where id = ?";
+$sql = "SELECT * FROM book WHERE id = ?";
 
 $stmt = $PDO->prepare($sql);
 
@@ -28,7 +28,7 @@ if(!$row){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My library</title>
     <link rel="icon" href="img/book-shelf.png">
-    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style2.css">
 </head>
 
 <body>
@@ -50,10 +50,14 @@ if(!$row){
         <label for="language">Language</label>
         <input type="text" name="language" value="<?=$row->language?>">
 
+        <button>Save</button>
+
         <br/>
 
         <label for="author">Choose an author in the list</label><br />
         <select name="author_id" id="author">
+
+
 
         <?php
             foreach ($PDO->query('SELECT author_id, name FROM author') as $data) {
@@ -63,7 +67,7 @@ if(!$row){
         }
 
         ?>
-        <button>Save</button>
+
     </form>
 </body>
 </html>

@@ -9,16 +9,21 @@ $a = $_GET["author_id"];
 
 $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
 
-$sql = "UPDATE book SET id=:i, title=:t, price=:p, releasedate=:r, language=:l, author_id=:a";
+$sql = "UPDATE book SET id=:i,
+title=:t,
+price=:p,
+releasedate=:r,
+language=:l,
+author_id=:a WHERE id=:i" ;
 
 $stmt = $PDO->prepare($sql);
 
 $stmt->bindValue('i',$i,PDO::PARAM_INT);
-$stmt->bindValue('t',$i,PDO::PARAM_STR);
-$stmt->bindValue('p',$i,PDO::PARAM_FLOAT);
-$stmt->bindValue('r',$i,PDO::PARAM_INT);
-$stmt->bindValue('l',$i,PDO::PARAM_STR);
-$stmt->bindValue('a',$i,PDO::PARAM_STR);
+$stmt->bindValue('t',$t,PDO::PARAM_STR);
+$stmt->bindValue('p',$p,PDO::PARAM_STR);
+$stmt->bindValue('r',$r,PDO::PARAM_INT);
+$stmt->bindValue('l',$l,PDO::PARAM_STR);
+$stmt->bindValue('a',$a,PDO::PARAM_INT);
 
 $stmt->execute();
 

@@ -1,6 +1,6 @@
 <?php
     require('index.php');
-
+    $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
 
 ?>
 
@@ -80,15 +80,15 @@
 <?php
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (empty($_POST["title"]) || empty($_POST["price"]) || empty($_POST["releasedate"]) || empty($_POST["language"])){ 
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (empty($_GET["title"]) || empty($_GET["price"]) || empty($_GET["releasedate"]) || empty($_GET["language"])){ 
     echo 'Veuillez remplir tous les champs.'; 
     }else {
-        $title = $_POST["title"];
-        $price = $_POST["price"];
-        $releasedate = $_POST["releasedate"];
-        $language = $_POST["language"];
-        $author_id = $_POST["author_id"];
+        $title = $_GET["title"];
+        $price = $_GET["price"];
+        $releasedate = $_GET["releasedate"];
+        $language = $_GET["language"];
+        $author_id = $_GET["author_id"];
 
         $PDO = new PDO("mysql:host=localhost;dbname=my_library","root","BONJOUR2020µ£");
 

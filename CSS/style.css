@@ -20,9 +20,9 @@ h1{
     margin-bottom: 100px;
 }
 
-td , tr {
-    text-align: center;
-    border-style:solid;
+th, td{
+    border: 1px solid black;
+    padding: 10px;
 }
 
 table{
@@ -33,12 +33,13 @@ table{
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 50px;
+    border-collapse: collapse;
 }
 
 
 a{
     margin-left: 5%;
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .center{
