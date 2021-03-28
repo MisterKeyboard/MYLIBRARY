@@ -1,5 +1,7 @@
+/* GENERAL RULES IN THE BODY */
+
 body{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Arial, Georgia, 'Times New Roman', Times, serif;
     background: url('../img/Bibliothèque-nationale-de-Rio-de-Janeiro-Brésil-0.jpg');
     background-size: cover;
 }
@@ -11,23 +13,28 @@ body{
 }
 
 h1{
+    border: 1px solid #000000;
+    background-color: white;
     width: 100%;
     margin-top: 50px;
     margin-left: 5%;
-    color: white;
+    color: black;
     font-size: 50px;
     font-style: italic;
     margin-bottom: 100px;
 }
 
+
+/* TABLE */
 th, td{
     border: 1px solid black;
     padding: 10px;
+    text-align: center;
 }
 
 table{
     background-color:white;
-    font-size: 20px;
+    font-size: 13px;
     width: 90%;
     margin-top: 50px;
     margin-right: auto;
@@ -36,18 +43,18 @@ table{
     border-collapse: collapse;
 }
 
-
 a{
     margin-left: 5%;
     font-size: 20px;
 }
 
-.center{
-text-align: center;
+.aupdate{
+    color:rgb(47, 47, 158);
 }
 
-
-
+.adel{
+    color:rgb(153, 15, 15);
+}
 
 
 /* POP UP */
@@ -63,15 +70,9 @@ text-align: center;
     cursor: pointer;
 }
 
-
-
-
 .btnPopup:hover{
     background-color: rgba(0, 128, 0, 0.253);
 }
-
-
-
 
 .overlay{
     position:fixed;
@@ -83,21 +84,27 @@ text-align: center;
     display:none;
 }
 
-
-
-
-
-
-
-
-.popup{
+.popup , .form{
     margin:20% auto;
     padding: 1em;
     width: 80%;
-    height:200px;
+    height:300px;
     background-color: rgb(228,228,228);
     border-radius: 5px;
     box-shadow:15px 20px 0 rgba(0,0,0,0.5);
+}
+
+
+/* GREEN BUTTONS */
+.save , .btnedit , .add{
+    margin-left: 5%;
+    margin-bottom: 50px;
+    background-color: green;
+    padding:1em 2em;
+    border-radius: 15px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
 }
 
 .btnClose{
@@ -105,6 +112,12 @@ text-align: center;
     cursor:pointer;
 }
 
+
 h2{
     margin-bottom: 6px;
+    font-size: 26px;
+}
+
+label{
+    padding-left: 10%;
 }

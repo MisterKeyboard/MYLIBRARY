@@ -9,72 +9,73 @@
 <html lang="en">
 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My library</title>
-    <link rel="icon" href="img/book-shelf.png">
-    <link rel="stylesheet" href="./CSS/style.css">
-</head>
-
-    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My library</title>
+        <link rel="icon" href="img/book-shelf.png">
+        <link rel="stylesheet" href="./CSS/style.css">
+    </head>
 
 
-<body>
-
-    <section>
-        <button id="btnPopup" class="btnPopup">Add a book</button>
-
-        <div id="overlay" class="overlay">
-
-            <div id="popup" class="popup">
 
 
-                <h2>In order to add a book,please fill in each of the fields:<span id="btnClose" class="btnClose">&times;</span><h2>
+    <body>
 
-                <form method="GET" action="add.php">
+        <section>
+            <button id="btnPopup" class="btnPopup">Add a book</button>
 
-                    <label for="title">Book title</label>
-                    <input type="text" name="title">
+            <div id="overlay" class="overlay">
 
-                    <label for="price">Price</label>
-                    <input type="number" name="price" min="0" step="0.01">
+                <div id="popup" class="popup">
 
-                    <br/>
 
-                    <label for="releasedate">Release date</label>
-                    <input type="number" name="releasedate" step="1">
+                    <h2>In order to add a book,please fill in each of the fields:<span id="btnClose"
+                        class="btnClose">&times;</span>
+                    <h2>
 
-                    <label for="language">Language</label>
-                    <input type="text" name="language">
+                    <form method="GET" action="add.php">
 
-                    <br/>
+                        <label for="title">Book title</label>
+                        <input type="text" name="title">
 
-                    <label for="author">Choose an author in the list</label><br />
-                    <select name="author_id" id="author">
+                        <label for="price">Price</label>
+                        <input type="number" name="price" min="0" step="0.01">
 
-                    <?php
-                        foreach ($PDO->query('SELECT author_id, name FROM author') as $data) {
-                    ?>
-                            <option value="<?php echo $data['author_id']; ?>"><?php echo $data['name']; ?></option>;
-                    <?php
-                    }
+                        <br />
 
-                    ?>
-                    </select>
+                        <label for="releasedate">Release date</label>
+                        <input type="number" name="releasedate" step="1">
 
-                    <button type="submit">ADD</button>
-                </form>
+                        <label for="language">Language</label>
+                        <input type="text" name="language">
+
+                        <br />
+
+                        <label for="author">Choose an author in the list</label>
+                        <select name="author_id" id="author">
+
+                            <?php
+                            foreach ($PDO->query('SELECT author_id, name FROM author') as $data) {
+                        ?>
+                                    <option value="<?php echo $data['author_id']; ?>">
+                                        <?php echo $data['name']; ?>
+                                    </option>;
+                                    <?php
+                        }
+
+                        ?>
+                        </select>
+
+                        <br />
+
+                        <button class="add" type="submit">ADD</button>
+                    </form>
+                </div>
             </div>
-        </div>
-        <script src="script.js"></script>
-    </section>
-
-
-
-</body>
-
-
+            <script src="script.js"></script>
+        </section>
+    </body>
 </html>
 
 <?php
